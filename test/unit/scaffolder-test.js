@@ -20,8 +20,19 @@ suite('scaffolder', () => {
   test('that the package file is written', async () => {
     fs.writeFile.resolves();
 
-    await scaffold({projectRoot, projectName});
+    const result = await scaffold({projectRoot, projectName});
 
+    assert.deepEqual(
+      result,
+      {
+        documentation: {
+          usage: `### Installation
+\`\`\`sh
+$ bpkg install ${projectName}
+\`\`\``
+        }
+      }
+    );
     assert.calledWith(fs.writeFile, `${projectRoot}/package.json`, JSON.stringify({name: projectName}));
   });
 });
