@@ -1,6 +1,7 @@
 # shell-scaffolder
 
-opinionated scaffolder for shell projects
+opinionated scaffolder for shell projects that are packaged with
+[bpkg](http://www.bpkg.io)
 
 <!-- status badges -->
 [![Build Status][ci-badge]][ci-link]
