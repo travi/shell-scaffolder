@@ -8,6 +8,7 @@ suite('scaffolder', () => {
   let sandbox;
   const projectRoot = any.string();
   const projectName = any.string();
+  const description = any.sentence();
 
   setup(() => {
     sandbox = sinon.createSandbox();
@@ -20,7 +21,7 @@ suite('scaffolder', () => {
   test('that the package file is written', async () => {
     fs.writeFile.resolves();
 
-    const result = await scaffold({projectRoot, projectName});
+    const result = await scaffold({projectRoot, projectName, description});
 
     assert.deepEqual(
       result,
@@ -35,6 +36,6 @@ $ bpkg install ${projectName}
         badges: {consumer: {}, status: {}, contribution: {}}
       }
     );
-    assert.calledWith(fs.writeFile, `${projectRoot}/package.json`, JSON.stringify({name: projectName}));
+    assert.calledWith(fs.writeFile, `${projectRoot}/package.json`, JSON.stringify({name: projectName, description}));
   });
 });
