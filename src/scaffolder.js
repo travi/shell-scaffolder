@@ -11,6 +11,7 @@ $ bpkg install ${projectName}
 \`\`\``
     },
     projectDetails: {},
-    badges: {consumer: {}, status: {}, contribution: {}}
+    badges: {consumer: {}, status: {}, contribution: {}},
+    vcsIgnore: {files: [], directories: ['/deps']}
   };
 }
