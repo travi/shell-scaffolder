@@ -5,7 +5,24 @@ import {questions, questionNames} from '@travi/language-scaffolder-prompts';
 export default async function ({projectRoot, projectName, description, vcs, ciServices, visibility}) {
   const {[questionNames.UNIT_TESTS]: unitTested} = await prompt(questions({vcs, ciServices, visibility}));
 
-  await writeFile(`${projectRoot}/package.json`, JSON.stringify({name: projectName, description}));
+  await Promise.all([
+    writeFile(`${projectRoot}/package.json`, JSON.stringify({name: projectName, description})),
+    writeFile(
+      `${projectRoot}/Makefile`,
+      `.DEFAULT_GOAL := test
+
+lint:
+  shellcheck **/*.sh
+
+test: lint
+
+clean:
+  rm -rf ./deps/
+
+.PHONY: lint
+`
+    )
+  ]);
 
   return {
     documentation: {
@@ -13,15 +30,22 @@ export default async function ({projectRoot, projectName, description, vcs, ciSe
 \`\`\`sh
 $ bpkg install ${projectName}
 \`\`\``,
-      contributing: `${unitTested
-        ? `### Dependencies
+      contributing: `### Global Tool Installation
+
+Be sure the following global installations are available:
+
+* [Shellcheck](https://github.com/koalaman/shellcheck#installing)
+* [bpkg](https://github.com/bpkg/bpkg#install)
+
+${unitTested
+    ? `### Dependencies
 
 \`\`\`sh
 $ bpkg install -g sstephenson/bats
 \`\`\`
 
 `
-        : ''}### Verification
+    : ''}### Verification
 
 \`\`\`sh
 $ make test

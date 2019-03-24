@@ -28,7 +28,7 @@ suite('scaffolder', () => {
 
   teardown(() => sandbox.restore());
 
-  test('that the package file is written', async () => {
+  test('that the package file and Makefile are written', async () => {
     fs.writeFile.resolves();
     inquirer.prompt.withArgs(questions).resolves({[commonLanguagePrompts.questionNames.UNIT_TESTS]: false});
 
@@ -42,7 +42,14 @@ suite('scaffolder', () => {
 \`\`\`sh
 $ bpkg install ${projectName}
 \`\`\``,
-          contributing: `### Verification
+          contributing: `### Global Tool Installation
+
+Be sure the following global installations are available:
+
+* [Shellcheck](https://github.com/koalaman/shellcheck#installing)
+* [bpkg](https://github.com/bpkg/bpkg#install)
+
+### Verification
 
 \`\`\`sh
 $ make test
@@ -54,6 +61,22 @@ $ make test
       }
     );
     assert.calledWith(fs.writeFile, `${projectRoot}/package.json`, JSON.stringify({name: projectName, description}));
+    assert.calledWith(
+      fs.writeFile,
+      `${projectRoot}/Makefile`,
+      `.DEFAULT_GOAL := test
+
+lint:
+  shellcheck **/*.sh
+
+test: lint
+
+clean:
+  rm -rf ./deps/
+
+.PHONY: lint
+`
+    );
   });
 
   test('that testing tool installation instructions are included when the project will be unit tested', async () => {
@@ -63,7 +86,14 @@ $ make test
 
     assert.equal(
       result.documentation.contributing,
-      `### Dependencies
+      `### Global Tool Installation
+
+Be sure the following global installations are available:
+
+* [Shellcheck](https://github.com/koalaman/shellcheck#installing)
+* [bpkg](https://github.com/bpkg/bpkg#install)
+
+### Dependencies
 
 \`\`\`sh
 $ bpkg install -g sstephenson/bats
