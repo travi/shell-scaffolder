@@ -52,5 +52,10 @@
     "rollup-plugin-auto-external": "^2.0.0",
     "sinon": "^7.2.7",
     "travis-lint": "^1.0.0"
+  },
+  "dependencies": {
+    "@travi/language-scaffolder-prompts": "1.0.0",
+    "inquirer": "^6.2.2",
+    "mz": "^2.7.0"
   }
 }

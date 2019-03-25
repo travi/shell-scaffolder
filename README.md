@@ -1,6 +1,7 @@
 # shell-scaffolder
 
-opinionated scaffolder for shell projects
+opinionated scaffolder for shell projects that are packaged with
+[bpkg](http://www.bpkg.io)
 
 <!-- status badges -->
 [![Build Status][ci-badge]][ci-link]
@@ -38,6 +39,13 @@ $ npm install
 ```sh
 $ npm test
 ```
+
+## Related Projects
+
+* [project-scaffolder](https://npm.im/@travi/project-scaffolder)
+* [scaffolder-sub-command](https://github.com/travi/scaffolder-sub-command)
+* [travis-scaffolder-shell](https://github.com/travi/travis-scaffolder-shell)
+* [cli](https://npm.im/@travi/cli)
 
 [npm-link]: https://www.npmjs.com/package/@travi/shell-scaffolder
 [npm-badge]: https://img.shields.io/npm/v/@travi/shell-scaffolder.svg
