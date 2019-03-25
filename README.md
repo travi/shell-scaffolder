@@ -1,5 +1,7 @@
 # shell-scaffolder
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/travi/shell-scaffolder.svg)](https://greenkeeper.io/)
+
 opinionated scaffolder for shell projects that are packaged with
 [bpkg](http://www.bpkg.io)
 
