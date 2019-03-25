@@ -1,11 +1,16 @@
 import {prompt} from 'inquirer';
 import {writeFile} from 'mz/fs';
 import {questions, questionNames} from '@travi/language-scaffolder-prompts';
+import scaffoldCi from './ci-scaffolder';
 
 export default async function ({projectRoot, projectName, description, vcs, ciServices, visibility}) {
-  const {[questionNames.UNIT_TESTS]: unitTested} = await prompt(questions({vcs, ciServices, visibility}));
+  const {
+    [questionNames.UNIT_TESTS]: unitTested,
+    [questionNames.CI_SERVICE]: chosenCiService
+  } = await prompt(questions({vcs, ciServices, visibility}));
 
-  await Promise.all([
+  const [ciServiceResults] = await Promise.all([
+    scaffoldCi(ciServices, chosenCiService, {projectRoot}),
     writeFile(`${projectRoot}/${projectName}.sh`, '#!/bin/sh'),
     writeFile(
       `${projectRoot}/package.json`,
@@ -58,6 +63,9 @@ $ make test
     projectDetails: {},
     badges: {consumer: {}, status: {}, contribution: {}},
     verificationCommand: 'make test',
-    vcsIgnore: {files: [], directories: ['/deps']}
+    vcsIgnore: {
+      files: ciServiceResults.vcsIgnore.files,
+      directories: ['/deps', ...ciServiceResults.vcsIgnore.directories]
+    }
   };
 }
