@@ -6,18 +6,22 @@ export default async function ({projectRoot, projectName, description, vcs, ciSe
   const {[questionNames.UNIT_TESTS]: unitTested} = await prompt(questions({vcs, ciServices, visibility}));
 
   await Promise.all([
-    writeFile(`${projectRoot}/package.json`, JSON.stringify({name: projectName, description})),
+    writeFile(`${projectRoot}/${projectName}.sh`, '#!/bin/sh'),
+    writeFile(
+      `${projectRoot}/package.json`,
+      JSON.stringify({name: projectName, description, scripts: [`${projectName}.sh`], install: 'make install'})
+    ),
     writeFile(
       `${projectRoot}/Makefile`,
       `.DEFAULT_GOAL := test
 
 lint:
-  shellcheck **/*.sh
+\tshellcheck *.sh
 
 test: lint
 
 clean:
-  rm -rf ./deps/
+\trm -rf ./deps/
 
 .PHONY: lint
 `
@@ -53,6 +57,7 @@ $ make test
     },
     projectDetails: {},
     badges: {consumer: {}, status: {}, contribution: {}},
+    verificationCommand: 'make test',
     vcsIgnore: {files: [], directories: ['/deps']}
   };
 }

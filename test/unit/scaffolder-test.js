@@ -57,22 +57,28 @@ $ make test
         },
         projectDetails: {},
         badges: {consumer: {}, status: {}, contribution: {}},
+        verificationCommand: 'make test',
         vcsIgnore: {files: [], directories: ['/deps']}
       }
     );
-    assert.calledWith(fs.writeFile, `${projectRoot}/package.json`, JSON.stringify({name: projectName, description}));
+    assert.calledWith(
+      fs.writeFile,
+      `${projectRoot}/package.json`,
+      JSON.stringify({name: projectName, description, scripts: [`${projectName}.sh`], install: 'make install'})
+    );
+    assert.calledWith(fs.writeFile, `${projectRoot}/${projectName}.sh`, '#!/bin/sh');
     assert.calledWith(
       fs.writeFile,
       `${projectRoot}/Makefile`,
       `.DEFAULT_GOAL := test
 
 lint:
-  shellcheck **/*.sh
+\tshellcheck *.sh
 
 test: lint
 
 clean:
-  rm -rf ./deps/
+\trm -rf ./deps/
 
 .PHONY: lint
 `
