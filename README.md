@@ -1,7 +1,5 @@
 # shell-scaffolder
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/travi/shell-scaffolder.svg)](https://greenkeeper.io/)
-
 opinionated scaffolder for shell projects that are packaged with
 [bpkg](http://www.bpkg.io)
 
@@ -28,6 +26,7 @@ $ npm install @travi/shell-scaffolder --save-prod
 [![Commitizen friendly][commitizen-badge]][commitizen-link]
 [![semantic-release][semantic-release-badge]][semantic-release-link]
 [![PRs Welcome][PRs-badge]][PRs-link]
+[![Greenkeeper badge](https://badges.greenkeeper.io/travi/shell-scaffolder.svg)](https://greenkeeper.io/)
 
 ### Dependencies
 
