@@ -55,7 +55,7 @@
   },
   "dependencies": {
     "@travi/language-scaffolder-prompts": "1.1.0",
-    "inquirer": "^6.2.2",
+    "inquirer": "^7.0.0",
     "mz": "^2.7.0"
   }
 }
