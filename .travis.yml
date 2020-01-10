@@ -3,7 +3,7 @@ notifications:
   email: false
 import:
   - source: form8ion/.travis-ci:node.yml
-  - source: travi-org/.travis-ci:authenticated-semantic-release.yml
+  - source: travi/.travis-ci:authenticated-semantic-release.yml
 before_script:
   - npm ls >/dev/null
 after_success: 'npm run coverage:report'
