@@ -32,7 +32,7 @@
     "prepack": "run-s build"
   },
   "devDependencies": {
-    "@babel/register": "7.5.5",
+    "@babel/register": "7.9.0",
     "@travi/any": "2.0.3",
     "@travi/babel-preset": "3.0.0",
     "@travi/eslint-config-travi": "1.8.3",
