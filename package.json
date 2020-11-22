@@ -19,7 +19,6 @@
   "scripts": {
     "lint:md": "remark . --frail",
     "lint:js": "eslint . --cache",
-    "lint:travis": "travis-lint .travis.yml",
     "lint:sensitive": "ban",
     "test:unit:base": "mocha --recursive test/unit",
     "test:unit": "nyc run-s test:unit:base",
@@ -50,8 +49,7 @@
     "rimraf": "3.0.2",
     "rollup": "2.33.3",
     "rollup-plugin-auto-external": "2.0.0",
-    "sinon": "9.2.1",
-    "travis-lint": "1.0.0"
+    "sinon": "9.2.1"
   },
   "dependencies": {
     "@travi/language-scaffolder-prompts": "1.1.1",
