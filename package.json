@@ -52,7 +52,7 @@
     "sinon": "9.2.1"
   },
   "dependencies": {
-    "@travi/language-scaffolder-prompts": "1.1.1",
+    "@travi/language-scaffolder-prompts": "1.2.0",
     "inquirer": "^7.0.0",
     "mz": "^2.7.0"
   }
