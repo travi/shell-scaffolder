@@ -33,7 +33,7 @@
   "devDependencies": {
     "@babel/register": "7.12.13",
     "@travi/any": "2.0.15",
-    "@travi/babel-preset": "3.0.39",
+    "@travi/babel-preset": "3.0.40",
     "@travi/eslint-config-travi": "1.8.8",
     "ban-sensitive-files": "1.9.15",
     "chai": "4.3.0",
