@@ -35,7 +35,7 @@
     "@travi/any": "2.0.19",
     "@travi/babel-preset": "3.0.72",
     "@travi/eslint-config-travi": "1.8.8",
-    "ban-sensitive-files": "1.9.16",
+    "ban-sensitive-files": "1.9.17",
     "chai": "4.3.4",
     "codecov": "3.8.3",
     "commitlint-config-travi": "1.4.6",
