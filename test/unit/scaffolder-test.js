@@ -1,6 +1,6 @@
 import * as prompts from '@form8ion/overridable-prompts';
 import * as commonLanguagePrompts from '@travi/language-scaffolder-prompts';
-import fs from 'mz/fs';
+import {promises as fs} from 'fs';
 import {assert} from 'chai';
 import any from '@travi/any';
 import sinon from 'sinon';

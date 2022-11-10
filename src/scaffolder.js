@@ -1,5 +1,5 @@
 import {prompt} from '@form8ion/overridable-prompts';
-import {writeFile} from 'mz/fs';
+import {promises as fs} from 'fs';
 import {questions, questionNames} from '@travi/language-scaffolder-prompts';
 import scaffoldCi from './ci-scaffolder';
 
@@ -11,12 +11,12 @@ export default async function ({projectRoot, projectName, description, vcs, ciSe
 
   const [ciServiceResults] = await Promise.all([
     scaffoldCi(ciServices, chosenCiService, {projectRoot}),
-    writeFile(`${projectRoot}/${projectName}.sh`, '#!/bin/sh'),
-    writeFile(
+    fs.writeFile(`${projectRoot}/${projectName}.sh`, '#!/bin/sh'),
+    fs.writeFile(
       `${projectRoot}/package.json`,
       JSON.stringify({name: projectName, description, scripts: [`${projectName}.sh`], install: 'make install'})
     ),
-    writeFile(
+    fs.writeFile(
       `${projectRoot}/Makefile`,
       `.DEFAULT_GOAL := test
 
