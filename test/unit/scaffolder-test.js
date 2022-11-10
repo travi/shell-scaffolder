@@ -1,4 +1,4 @@
-import inquirer from 'inquirer';
+import * as prompts from '@form8ion/overridable-prompts';
 import * as commonLanguagePrompts from '@travi/language-scaffolder-prompts';
 import fs from 'mz/fs';
 import {assert} from 'chai';
@@ -21,7 +21,7 @@ suite('scaffolder', () => {
     sandbox = sinon.createSandbox();
 
     sandbox.stub(fs, 'writeFile');
-    sandbox.stub(inquirer, 'prompt');
+    sandbox.stub(prompts, 'prompt');
     sandbox.stub(commonLanguagePrompts, 'questions');
     sandbox.stub(ciScaffolder, 'default');
 
@@ -35,7 +35,7 @@ suite('scaffolder', () => {
     const ciFilesToIgnore = any.listOf(any.word);
     const ciDirectoriesToIgnore = any.listOf(any.word);
     fs.writeFile.resolves();
-    inquirer.prompt
+    prompts.prompt
       .withArgs(questions)
       .resolves({
         [commonLanguagePrompts.questionNames.UNIT_TESTS]: false,
@@ -99,7 +99,7 @@ clean:
   });
 
   test('that testing tool installation instructions are included when the project will be unit tested', async () => {
-    inquirer.prompt.withArgs(questions).resolves({[commonLanguagePrompts.questionNames.UNIT_TESTS]: true});
+    prompts.prompt.withArgs(questions).resolves({[commonLanguagePrompts.questionNames.UNIT_TESTS]: true});
     ciScaffolder.default.resolves({vcsIgnore: {files: [], directories: []}});
 
     const result = await scaffold({projectRoot, projectName, description, vcs, ciServices, visibility});

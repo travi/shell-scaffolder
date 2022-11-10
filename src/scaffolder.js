@@ -1,4 +1,4 @@
-import {prompt} from 'inquirer';
+import {prompt} from '@form8ion/overridable-prompts';
 import {writeFile} from 'mz/fs';
 import {questions, questionNames} from '@travi/language-scaffolder-prompts';
 import scaffoldCi from './ci-scaffolder';
