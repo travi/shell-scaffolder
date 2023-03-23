@@ -18,6 +18,7 @@
     "lint:publish": "publint",
     "test:unit:base": "DEBUG=any vitest run",
     "test:unit": "cross-env NODE_ENV=test c8 run-s test:unit:base",
+    "pretest": "run-s build",
     "test": "npm-run-all --print-label --parallel lint:* --parallel test:*",
     "clean": "rimraf lib/",
     "build": "run-s clean build:*",
