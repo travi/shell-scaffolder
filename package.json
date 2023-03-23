@@ -29,7 +29,8 @@
     "lib/"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "dependencies": {
     "@form8ion/overridable-prompts": "^1.2.0",
