@@ -8,8 +8,7 @@
   "repository": "travi/shell-scaffolder",
   "bugs": "https://github.com/travi/shell-scaffolder/issues",
   "homepage": "https://npm.im/@travi/shell-scaffolder",
-  "main": "lib/index.cjs.js",
-  "module": "lib/index.es.js",
+  "exports": "./lib/index.js",
   "sideEffects": false,
   "scripts": {
     "lint:md": "remark . --frail",
