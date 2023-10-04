@@ -49,7 +49,7 @@
     "cz-conventional-changelog": "3.3.0",
     "husky": "8.0.3",
     "jest-when": "3.6.0",
-    "npm-run-all2": "6.1.0",
+    "npm-run-all2": "6.1.1",
     "publint": "0.2.3",
     "remark-cli": "12.0.0",
     "remark-preset-lint-travi": "6.0.3",
