@@ -1,7 +1,8 @@
 import {promises as fs} from 'node:fs';
 import {prompt} from '@form8ion/overridable-prompts';
 import {questions, questionNames} from '@travi/language-scaffolder-prompts';
-import scaffoldCi from './ci-scaffolder';
+
+import scaffoldCi from './ci-scaffolder.js';
 
 export default async function ({projectRoot, projectName, description, vcs, ciServices, visibility}) {
   const {
