@@ -6,8 +6,8 @@ import {describe, it, vi, expect, beforeEach, afterEach} from 'vitest';
 import any from '@travi/any';
 import {when} from 'jest-when';
 
-import * as ciScaffolder from './ci-scaffolder';
-import {scaffold} from './index';
+import * as ciScaffolder from './ci-scaffolder.js';
+import {scaffold} from './index.js';
 
 describe('scaffolder', () => {
   const projectRoot = any.string();

@@ -2,7 +2,7 @@ import {describe, it, vi, expect} from 'vitest';
 import any from '@travi/any';
 import {when} from 'jest-when';
 
-import scaffoldCi from './ci-scaffolder';
+import scaffoldCi from './ci-scaffolder.js';
 
 describe('ci', () => {
   it('should pass the necessary data to the service scaffolder', async () => {
