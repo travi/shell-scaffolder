@@ -41,7 +41,7 @@
   "devDependencies": {
     "@travi/any": "3.1.0",
     "@travi/eslint-config": "5.0.8",
-    "@travi/eslint-config-mocha": "1.0.22",
+    "@travi/eslint-config-mocha": "1.0.23",
     "ban-sensitive-files": "1.10.1",
     "c8": "9.1.0",
     "commitlint-config-travi": "1.4.49",
