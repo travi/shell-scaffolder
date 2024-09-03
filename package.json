@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@travi/any": "3.1.2",
-    "@travi/eslint-config": "5.0.8",
+    "@travi/eslint-config": "5.0.9",
     "@travi/eslint-config-mocha": "1.0.25",
     "ban-sensitive-files": "1.10.5",
     "c8": "10.1.2",
