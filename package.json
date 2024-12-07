@@ -42,7 +42,7 @@
     "@travi/any": "3.1.2",
     "@travi/eslint-config": "5.0.11",
     "@travi/eslint-config-mocha": "1.0.25",
-    "ban-sensitive-files": "1.10.6",
+    "ban-sensitive-files": "1.10.7",
     "c8": "10.1.2",
     "commitlint-config-travi": "1.4.53",
     "cross-env": "7.0.3",
