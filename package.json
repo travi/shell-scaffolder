@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@form8ion/overridable-prompts": "^1.2.0",
-    "@travi/language-scaffolder-prompts": "2.0.1"
+    "@travi/language-scaffolder-prompts": "2.0.2"
   },
   "devDependencies": {
     "@travi/any": "3.1.3",
